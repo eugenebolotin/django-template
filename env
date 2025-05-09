@@ -1,0 +1,12 @@
+DEBUG=True
+
+ALLOWED_HOSTS=localhost,127.0.0.1
+CORS_ALLOWED_ORIGINS=http://localhost,http://127.0.0.1
+CORS_ALLOW_ALL_ORIGINS=False
+
+DATABASE_URL=sqlite:///db.sqlite3  # postgres://<user>:<password>@<host>:<port>/<db>
+
+DJANGO_SUPERUSER_USERNAME=<django_admin_user>
+DJANGO_SUPERUSER_PASSWORD=<django_admin_password>
+DJANGO_SUPERUSER_EMAIL=<email_admin>
+DJANGO_SECRET_KEY=<django_secret>

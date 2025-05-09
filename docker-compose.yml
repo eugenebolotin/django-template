@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:17
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env.postgres
+    networks:
+      - app-network
+    restart: always
+
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./media:/app/media
+      - ./static:/app/static
+    env_file:
+      - .env
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge

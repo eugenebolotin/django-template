@@ -1,0 +1,11 @@
+[project]
+name = "django-template"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "dj-database-url>=2.3.0",
+    "django>=5.2.1",
+    "python-decouple>=3.8",
+    "uvicorn>=0.34.2",
+]
