@@ -16,7 +16,6 @@ loggers:
       - default
     propagate: no
   uvicorn.access:
-    level: INFO
-    handlers:
-      - default
+    level: CRITICAL
+    handlers: []
     propagate: no
