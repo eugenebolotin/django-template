@@ -14,8 +14,7 @@ import sys
 from pathlib import Path
 
 import dj_database_url
-from decouple import config, Csv
-
+from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -62,8 +61,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,9 +80,7 @@ ASGI_APPLICATION = 'config.asgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASE_URL = config('DATABASE_URL')
-DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL)
-}
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
 # Password validation
@@ -136,14 +132,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-
     'formatters': {
         'simple': {
             'format': '[{asctime}] {levelname} - {message}',
             'style': '{',
         },
     },
-
     'handlers': {
         'console': {
             'level': 'INFO',
@@ -152,7 +146,6 @@ LOGGING = {
             'formatter': 'simple',
         },
     },
-
     'loggers': {
         '': {
             'handlers': ['console'],

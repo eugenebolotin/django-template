@@ -5,7 +5,6 @@ import django
 from django.db import connections
 from django.db.utils import OperationalError
 
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 

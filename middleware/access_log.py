@@ -1,6 +1,5 @@
-import time
 import logging
-
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +25,7 @@ class AccessLogStdoutMiddleware:
 
         logger.info(
             f'{remote_addr}:{remote_port} - "{method} {full_path} {protocol}" {status_code} {content_length} '
-            f'"{referer}" "{user_agent}" {duration:.3f}'
+            f'"{referer}" "{user_agent}" {duration:.3f}',
         )
 
         return response
