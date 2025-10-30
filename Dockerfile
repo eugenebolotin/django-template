@@ -6,11 +6,10 @@ ENV PYTHONPATH="/app"
 # Install system dependencies (suppose to use Postgres by default)
 RUN apt-get update && apt-get install -y build-essential libpq-dev curl && rm -rf /var/lib/apt/lists/*
 
-# Copy pyproject.toml and install project dependencies
-COPY pyproject.toml /app/
+# Copy dependency files and install project dependencies
+COPY pyproject.toml uv.lock /app/
 
-RUN uv venv
-RUN uv pip install .
+RUN uv sync --frozen --no-dev
 
 # Copy the rest of the project source code
 COPY . /app/
