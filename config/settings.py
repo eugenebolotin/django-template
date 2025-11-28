@@ -83,7 +83,15 @@ ASGI_APPLICATION = 'config.asgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASE_URL = config('DATABASE_URL')
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+DATABASE_CONN_MAX_AGE = config('DATABASE_CONN_MAX_AGE', cast=int, default=600)
+DATABASE_CONN_HEALTH_CHECKS = config('DATABASE_CONN_HEALTH_CHECKS', cast=bool, default=True)
+DATABASES = {
+    'default': dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=DATABASE_CONN_MAX_AGE,
+        conn_health_checks=DATABASE_CONN_HEALTH_CHECKS,
+    )
+}
 
 
 # Password validation
